@@ -1,5 +1,37 @@
 .Cabecalho-container{
-background-color: #f290ff;
-color: rebeccapurple;
+background-color: var(--cor-1);
+color:var(--cor-5);
+
+}
+.img_Logo{
+ border-radius: 10px;
+ height: 90px;
+ margin-bottom: 10px;
+
+
+
+
+}
+.nav_bar{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+
+
+
+}
+.barra_pesquisa{
+width: 400px;
+height: 30px;
+margin-top: 2%;
+border-radius:30px ;
+border-color:var(--cor-3) ;
+font-size: 18px;
+
+}
+.barra_pesquisa:focus{
+outline: 0;
+
+
 
 }
