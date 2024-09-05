@@ -1,0 +1,13 @@
+.mediaContainer{
+    border: black 1px solid;
+   align-items: center;
+   justify-content: center;
+   display: flex;
+   flex-direction: column;
+   padding: 10px;
+   margin: 50px;
+  
+   border-radius: 10px;
+   
+   
+}

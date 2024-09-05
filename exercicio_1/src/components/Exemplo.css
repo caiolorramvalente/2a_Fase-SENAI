@@ -1,0 +1,13 @@
+button{
+margin: 30px;
+height: 40px;
+width: fit-content;
+background-color:#ff85a1 ;
+color: rgb(252, 230, 230);
+border: #ffb3c1 3px solid;
+border-radius: 100px;
+}
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+    
