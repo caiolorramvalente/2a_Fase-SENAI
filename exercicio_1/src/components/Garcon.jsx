@@ -30,7 +30,7 @@ function Garcon() {
 
     }
     return (
-    <div>
+    <div className='mediaContainer'>
         <h2>Restaurante</h2>
         <button onClick={prestacao}>verrificar</button>
         <p>reultado: </p>{resultado}

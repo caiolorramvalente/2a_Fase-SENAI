@@ -1,11 +1,14 @@
 button{
 margin: 30px;
-height: 40px;
+height: fit-content;
 width: fit-content;
-background-color:#ff85a1 ;
-color: rgb(252, 230, 230);
-border: #ffb3c1 3px solid;
+background-color:#00b4d8 ;
+color: rgb(255, 255, 255);
+border: #023047 3px solid;
 border-radius: 100px;
+font-size: 20px;
+padding: 17px;
+
 }
 *{
     font-family: Arial, Helvetica, sans-serif;
