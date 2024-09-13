@@ -1,0 +1,17 @@
+.container_master{
+border: 3px solid #e5e5e5;
+border-radius:30px;
+
+
+}
+h2{
+margin: 30px;
+
+}
+p,input,button{
+    margin: 10px;
+}
+.butao{
+box-shadow: 0 0 14 black;
+
+}
