@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
+import StatusEmprestimos from './StatusEmprestimos'
 
 function Garcon() {
 
     const [resultado,setResultado]=useState()
+    const  [stateRelatorio,setStateRelatorio]=useState()
+
 
     function prestacao(){
         let valorSalario = Number(prompt("digite seu salario: "))
@@ -17,11 +20,38 @@ function Garcon() {
 
         if(salarioMaxprestacao>valorPrestacao){
             setResultado("O emprestimo foi autorizado 😀")
+            let infosrelatorio = {
+                situacao: "aprovado",
+                maxPrestacao: salarioMaxprestacao  ,
+                prestacao:vezesPrestacao,
+                emprestimo:valorEmprestimo ,
+                valorPrestacao:valorPrestacao
+
+            
+            
+            
+                
+            }
+            {stateRelatorio(infosrelatorio)}
+            
             
 
             
         }else{
             setResultado("O emprestimo não foi autorizado 😭")
+            let infosrelatorio = {
+                situacao: "reprovado",
+                maxPrestacao: salarioMaxprestacao  ,
+                prestacao:vezesPrestacao,
+                emprestimo:valorEmprestimo ,
+                valorPrestacao:valorPrestacao
+
+            
+            
+            
+                
+            }
+            {stateRelatorio(infosrelatorio)}
 
 
         }
@@ -31,9 +61,9 @@ function Garcon() {
     }
     return (
     <div className='mediaContainer'>
-        <h2>Restaurante</h2>
+        <h2>emprestimos</h2>
         <button onClick={prestacao}>verrificar</button>
-        <p>reultado: </p>{resultado}
+        {stateRelatorio &&<StatusEmprestimos  infos={stateRelatorio} />}
       
     </div>
   )
