@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './Pousada.css'
+import RelatorioDaPousada from '../components/RelatorioDaPousada'
 
 function Pousada() {
   const [diasPousada,setDiasPousada ]=useState('')
@@ -8,50 +9,123 @@ function Pousada() {
   const [formaPagamento,setFormaPagamento]=useState('')
 
    function verrificarEstadia(){
-    let valorPousada
     let valorDesconto
-    let valorPousadaSemDesconto
+    let valorEstadia
 
-    if(diasPousada<=5){
-      valorPousadaSemDesconto=diasPousada*100
-      if(Number(descontoUber)==15){
-        valorDesconto=(valorPousadaSemDesconto*15)/100
-        valorPousada=valorPousadaSemDesconto-valorDesconto
+
+
+    switch(true){
+
+      case diasPousada<=5:
+
+        if(descontoUber==15){
+          valorEstadia=diasPousada*100
+
+          valorDesconto=(valorEstadia*15)/100
+
+          valorEstadia=valorEstadia-valorDesconto
+           let RelatorioEstadia={
+            valorEstadia:valorEstadia,
+            obteveDesconto:"Sim",
+            diasHospedado:diasPousada,
+            valorDesconto:valorDesconto,
+            formaPagamento:formaPagamento}
+            setRelatorioPagamento(RelatorioEstadia)
+
+        }else{
+          valorEstadia=diasPousada*100
+
+          let RelatorioEstadia={
+            valorEstadia:valorEstadia,
+            obteveDesconto:"Não",
+            diasHospedado:diasPousada,
+            valorDesconto:"não teve desconto",
+            formaPagamento:formaPagamento}
           
-        let infosPagamentosPousada={
-            valorPousadaBruto:valorPousadaSemDesconto,
-            valorPousada:valorPousada,
-            desconto:descontoUber,
-            formaPagamento:formaPagamento,
-            diasNaPousada:diasPousada
-
+         
+            setRelatorioPagamento(RelatorioEstadia)
         }
-
-
-
-
-      }else{
-        valorPousadaSemDesconto=diasPousada*100
         
-        let infosPagamentosPousada={
-          valorPousadaBruto:valorPousadaSemDesconto,
-          valorPousada:valorPousada,
-          desconto:descontoUber,
-          formaPagamento:formaPagamento,
-          diasNaPousada:diasPousada
-
- 
-
-      }
-    }
-
-   }else if(diasPousada>6 && diasPousada<11){
-    valorPousadaSemDesconto=diasPousada*90
 
 
+      break
+
+      case diasPousada>=6 && diasPousada <=10 :
+
+        if(descontoUber==15){
+          valorEstadia=diasPousada*90
+
+          valorDesconto=(valorEstadia*15)/100
+
+          valorEstadia=valorEstadia-valorDesconto
+
+          let RelatorioEstadia={
+            valorEstadia:valorEstadia,
+            obteveDesconto:"Sim",
+            diasHospedado:diasPousada,
+            valorDesconto:valorDesconto,
+            formaPagamento:formaPagamento}
+
+            setRelatorioPagamento(RelatorioEstadia)
+
+          
+          }else{
+            valorEstadia=diasPousada*90
+
+            let RelatorioEstadia={
+              valorEstadia:valorEstadia,
+              obteveDesconto:"Não",
+              diasHospedado:diasPousada,
+              valorDesconto:'não teve desconto',
+              formaPagamento:formaPagamento}
+
+              setRelatorioPagamento(RelatorioEstadia)
+         
+
+          }
 
 
-   }
+      break
+
+      case diasPousada>=11 :
+        if(descontoUber==15){
+          valorEstadia=diasPousada*80
+          valorDesconto=(valorEstadia*15)/100
+          valorEstadia=valorEstadia-valorDesconto
+
+          let RelatorioEstadia={
+            valorEstadia:valorEstadia,
+            obteveDesconto:"Sim",
+            diasHospedado:diasPousada,
+            valorDesconto:valorDesconto,
+            formaPagamento:formaPagamento}
+
+            setRelatorioPagamento(RelatorioEstadia)
+
+          
+          }else{
+            valorEstadia=diasPousada*80
+
+            let RelatorioEstadia={
+              valorEstadia:valorEstadia,
+              obteveDesconto:"Não",
+              diasHospedado:diasPousada,
+              valorDesconto : "não teve desconto",
+              formaPagamento:formaPagamento}
+
+              setRelatorioPagamento(RelatorioEstadia)
+         
+
+          }
+
+
+      default:
+
+
+
+
+
+    }   
 
   }
 
@@ -79,7 +153,10 @@ function Pousada() {
           <option value="debito">debito</option>
           <option value="em dinheiro">em dinheiro</option>
         </select><br />
-    <button> verrificar </button>
+    
+    <button onClick={verrificarEstadia}> verrificar </button>
+
+    {relatorioPagamento && <RelatorioDaPousada infos={relatorioPagamento} />}
 
    
 
