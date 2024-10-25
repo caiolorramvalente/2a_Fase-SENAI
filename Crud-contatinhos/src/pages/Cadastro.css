@@ -1,0 +1,27 @@
+p{
+    color: #000000;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+.contatosPessoas{
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
+}
+.cardContatos{
+    margin: 5px;  
+    border-radius:10px ;
+    box-shadow: 0 0 20px #00072d;
+    width: fit-content;
+    height: fit-content;
+    align-items:  center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.imgDragao{
+    width: 40%;
+    height: 40%;
+    border-radius: 100px;
+  margin-top: 20px;
+}
